@@ -79,17 +79,21 @@ if (loginForm != null)
       .then((data) => {
         // Handle the response data
         //save login token to localstorage
-
-        if (data.error != null) return alert(data.message);
-
-        localStorage.setItem("token", data.access_token.original.access_token);
+        console.log(data);
+        alert(data.message);
 
         if (data.user) {
+          localStorage.setItem(
+            "token",
+            data.access_token.original.access_token
+          );
+          localStorage.setItem("user", JSON.stringify(data.user));
+
           window.location.assign("/dashboard/dashboard.html");
         }
       })
       .catch((error) => {
         // Handle errors
-        alert("Error:", error);
+        console.log("Error:", error);
       });
   });

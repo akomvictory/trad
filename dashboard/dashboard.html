@@ -54,6 +54,8 @@ Our goal is to provide our investors with a reliable source of high income, whil
     cursor: pointer;
   }
 </style>
+<script src="../js/dashboard.js" defer
+></script>
 </head>
   <body>
       
@@ -151,7 +153,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
                 <label>Referral Link</label>
                 <div class="input-group">
                   <input type="text" name="text" class="form-control" id="referralURL"
-                  value="https://legaltrademining.com/register/Goodluck" readonly>
+                   readonly>
                   <div class="input-group-append">
                     <span class="input-group-text copytext copyBoard" id="copyBoard"> <i class="fa fa-copy"></i> </span>
                   </div>
@@ -161,7 +163,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
                 <div class="d-widget d-flex flex-wrap">
                   <div class="col-8">
                     <span class="caption">Deposit Wallet Balance</span>
-                    <h4 class="currency-amount">$10</h4>
+                    <h4 class="currency-amount" id="balance"></h4>
                   </div>
                   <div class="col-4">
                     <div class="icon ml-auto">
@@ -174,7 +176,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
                 <div class="d-widget d-flex flex-wrap">
                   <div class="col-8">
                     <span class="caption">Interest Wallet Balance</span>
-                    <h4 class="currency-amount">$0</h4>
+                    <h4 class="currency-amount" id="earning">$0</h4>
                   </div>
                   <div class="col-4">
                     <div class="icon ml-auto">
@@ -186,8 +188,8 @@ Our goal is to provide our investors with a reliable source of high income, whil
               <div class="col-xl-4 col-sm-6 mb-30">
                 <div class="d-widget d-flex flex-wrap">
                   <div class="col-8">
-                    <span class="caption">Total Invest</span>
-                    <h4 class="currency-amount">$0</h4>
+                    <span class="caption">Total Assests</span>
+                    <h4 class="currency-amount" id="asset"></h4>
                   </div>
                   <div class="col-4">
                     <div class="icon ml-auto">
@@ -200,7 +202,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
                 <div class="d-widget d-flex flex-wrap">
                   <div class="col-8">
                     <span class="caption">Total Deposit</span>
-                    <h4 class="currency-amount">$0</h4>
+                    <h4 class="currency-amount" id="deposit"></h4>
                   </div>
                   <div class="col-4">
                     <div class="icon ml-auto">
@@ -213,7 +215,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
                 <div class="d-widget  d-flex flex-wrap">
                   <div class="col-8">
                     <span class="caption">Total Withdraw</span>
-                    <h4 class="currency-amount">$0</h4>
+                    <h4 class="currency-amount" id="withdraw"></h4>
                   </div>
                   <div class="col-4">
                     <div class="icon ml-auto">
@@ -226,7 +228,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
                 <div class="d-widget  d-flex flex-wrap">
                   <div class="col-8">
                     <span class="caption">Referral Earnings</span>
-                    <h4 class="currency-amount">$0</h4>
+                    <h4 class="currency-amount" id="bonus"></h4>
                   </div>
                   <div class="col-4">
                     <div class="icon ml-auto">
@@ -251,8 +253,8 @@ Our goal is to provide our investors with a reliable source of high income, whil
                       </tr>
                     </thead>
                     <tbody>
-                                            <tr>
-                        <td data-label="Date">10/12/2023</td>
+                        <tr>
+                        <td data-label="Date" id="date"> </td>
                         <td data-label="Transaction ID"><span class="text-primary">1G61QZXWPJPA</span></td>
 
                         <td data-label="Amount">
