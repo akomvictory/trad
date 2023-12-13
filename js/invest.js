@@ -1,7 +1,7 @@
 const user = JSON.parse(localStorage.getItem("user"));
 const token = "Bearer " + localStorage.getItem("token");
 
-const apis = ["http://127.0.0.1:8000/api", "https://api/komeat.com/api"];
+const apis = ["http://127.0.0.1:8000/api", "https://api.komeat.com/api"];
 
 fetch(apis[1] + "/user/auth", {
   method: "GET",

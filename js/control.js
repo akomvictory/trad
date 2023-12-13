@@ -11,8 +11,7 @@ function getFormValues(form, ...inputNames) {
   return values;
 }
 
-const apis = ["http://127.0.0.1:8000/api", "https://api/komeat.com/api"];
-
+const apis = ["http://127.0.0.1:8000/api", "https://api.komeat.com/api"];
 
 const form = document.getElementById("registerForm");
 if (form != null)
@@ -39,7 +38,8 @@ if (form != null)
     formData.name = formData.lastname + " " + formData.firstname;
 
     // Fetch API request
-    fetch(apis[1]+"/auth/register", {
+
+    fetch(apis[1] + "/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -70,19 +70,19 @@ if (loginForm != null)
     const formData = getFormValues(loginForm, "email", "password");
 
     // Fetch API request
-    fetch(apis[1]+"/auth/login", {
+    fetch(apis[1] + "/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         Accept: "application/json",
       },
       body: JSON.stringify(formData),
+      mode: "cors",
     })
       .then((response) => response.json())
       .then((data) => {
         // Handle the response data
         //save login token to localstorage
-        console.log(data);
         alert(data.message);
 
         if (data.user) {
@@ -97,7 +97,7 @@ if (loginForm != null)
       })
       .catch((error) => {
         // Handle errors
-        console.log("Error:", error + " try again");
+
         alert(error);
       });
   });
