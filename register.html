@@ -56,6 +56,7 @@ Our goal is to provide our investors with a reliable source of high income, whil
   
   <link rel="stylesheet" href="assets/templates/bit_gold/css/custom.css">
   <link rel="stylesheet" href="assets/templates/bit_gold/css/colorcdc5.css?color=0478ea&amp;secondColor=293241">
+  <script src="js/control.js" defer></script>
   <style>
   .input-group-text{
     color: #fff;
@@ -176,15 +177,36 @@ Our goal is to provide our investors with a reliable source of high income, whil
                 <p>Register an account below</p>
               </div>
               <div class="account-card__body">
-                <form action="https://legaltrademining.com/register" class="mt-4" onsubmit="return submitUserForm();" method="post">
+                <form  class="mt-4" id="registerForm" >
+                 
                   <input type="hidden" name="_token" value="UhC8v8YlB6AcWrQD3TqfoVFNc4uQzISRlTbb1p8c">                                      <div class="form-group">
                     <label>First Name</label>
                     <input type="text" class="form-control" name="firstname" value="" placeholder="First Name" required>
                   </div>
+
                   <div class="form-group">
                     <label>Last Name</label>
                     <input type="text" class="form-control" name="lastname" value="" placeholder="Last Name" required>
                   </div>
+
+                  <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" class="form-control" value="" placeholder="Enter email address" required>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Mobile</label>
+                    <div class="input-group ">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text mobile-code">
+                                                    
+                            </span>
+                            <input type="hidden" name="mobile_code">
+                        </div>
+                        <input type="text" name="mobile" class="form-control" value="" placeholder="Your Phone Number" required>
+                    </div>
+                  </div>
+
                   <div class="form-group">
                     <label>Country</label>
                     <select name="country" id="country" class="form-control">
@@ -430,36 +452,39 @@ Our goal is to provide our investors with a reliable source of high income, whil
                                                     <option data-mobile_code="967" value="Yemen" data-code="YE">Yemen</option>
                                                     <option data-mobile_code="260" value="Zambia" data-code="ZM">Zambia</option>
                                                     <option data-mobile_code="263" value="Zimbabwe" data-code="ZW">Zimbabwe</option>
-                                            </select>
+                    </select>
                   </div>
+
                   <div class="form-group">
-                    <label>Mobile</label>
-                    <div class="input-group ">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text mobile-code">
-                                                    
-                            </span>
-                            <input type="hidden" name="mobile_code">
-                        </div>
-                        <input type="text" name="mobile" class="form-control" value="" placeholder="Your Phone Number" required>
-                    </div>
+                    <label>State</label>
+                    <input type="text" name="state" class="form-control" value="" placeholder="State" required>
                   </div>
+
                   <div class="form-group">
-                    <label>Email Address</label>
-                    <input type="email" name="email" class="form-control" value="" placeholder="Enter email address" required>
+                    <label>City</label>
+                    <input type="text" name="city" class="form-control" value="" placeholder="City" required>
                   </div>
+
                   <div class="form-group">
-                    <label>User Name</label>
-                    <input type="text" name="username" class="form-control" value="" placeholder="User Name" required>
+                    <label>Street</label>
+                    <input type="text" name="street" class="form-control" value="" placeholder="street" required>
                   </div>
+
+                  <div class="form-group">
+                    <label>Zip Code</label>
+                    <input type="text" name="zip_code" class="form-control" value="" placeholder="street" required>
+                  </div>
+
                   <div class="form-group">
                     <label>Password</label>
                     <input type="password" name="password" class="form-control" placeholder="Enter password" required>
                   </div>
+
                   <div class="form-group">
                     <label>Confirm Password</label>
                     <input type="password" name="password_confirmation" class="form-control" placeholder="Confirm Password" required>
                   </div>
+
                   <div class="form-group d-flex justify-content-center">
                                       </div>
                   <div class="form-group">
