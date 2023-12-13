@@ -11,6 +11,9 @@ function getFormValues(form, ...inputNames) {
   return values;
 }
 
+const apis = ["http://127.0.0.1:8000/api", "https://api/komeat.com/api"];
+
+
 const form = document.getElementById("registerForm");
 if (form != null)
   form.addEventListener("submit", (e) => {
@@ -36,7 +39,7 @@ if (form != null)
     formData.name = formData.lastname + " " + formData.firstname;
 
     // Fetch API request
-    fetch("http://127.0.0.1:8000/api/auth/register", {
+    fetch(apis[1]+"/auth/register", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -67,7 +70,7 @@ if (loginForm != null)
     const formData = getFormValues(loginForm, "email", "password");
 
     // Fetch API request
-    fetch("http://127.0.0.1:8000/api/auth/login", {
+    fetch(apis[1]+"/auth/login", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

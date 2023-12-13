@@ -3,7 +3,7 @@ const token = "Bearer " + localStorage.getItem("token");
 
 const apis = ["http://127.0.0.1:8000/api", "https://api/komeat.com/api"];
 
-fetch(apis[0] + "/user/auth", {
+fetch(apis[1] + "/user/auth", {
   method: "GET",
   headers: {
     "Content-account_stage": "application/json",
@@ -17,7 +17,7 @@ fetch(apis[0] + "/user/auth", {
     window.location.assign("/index.html");
   });
 
-fetch(`${apis[0]}/user/${user.id}`, {
+fetch(`${apis[1]}/user/${user.id}`, {
   method: "GET",
   headers: {
     "Content-account_stage": "application/json",
@@ -77,7 +77,7 @@ document.getElementById("register").addEventListener("submit", (e) => {
     bonus: user.account.bonus,
     account_type: user.account.account_type,
   };
-  fetch(`${apis[0]}/account/${user.account.id}`, {
+  fetch(`${apis[1]}/account/${user.account.id}`, {
     method: "PUT",
     headers: {
       "Content-account_stage": "application/json",
@@ -98,7 +98,7 @@ document.getElementById("register").addEventListener("submit", (e) => {
 });
 
 document.getElementById("logout").addEventListener("click", () => {
-  fetch(`${apis[0]}/logout`, {
+  fetch(`${apis[1]}/logout`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

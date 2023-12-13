@@ -3,7 +3,7 @@ const token = "Bearer " + localStorage.getItem("token");
 
 const apis = ["http://127.0.0.1:8000/api", "https://api/komeat.com/api"];
 
-fetch(apis[0] + "/user/auth", {
+fetch(apis[1] + "/user/auth", {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -19,7 +19,7 @@ fetch(apis[0] + "/user/auth", {
 
 document.getElementById("referralURL").value = `${apis[0]}/${user.name}`;
 
-fetch(`${apis[0]}/user/${user.id}`, {
+fetch(`${apis[1]}/user/${user.id}`, {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -46,7 +46,7 @@ fetch(`${apis[0]}/user/${user.id}`, {
   });
 
 document.getElementById("logout").addEventListener("click", () => {
-  fetch(`${apis[0]}/logout`, {
+  fetch(`${apis[1]}/logout`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
