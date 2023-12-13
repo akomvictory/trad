@@ -1,11 +1,25 @@
 const user = JSON.parse(localStorage.getItem("user"));
-const token = "Bearer 1|" + localStorage.getItem("token");
-console.log(token);
-document.getElementById(
-  "referralURL"
-).value = `https://localHostcom/register/${user.name}`;
+const token = "Bearer " + localStorage.getItem("token");
 
-fetch(`http://127.0.0.1:8000/api/user/${user.id}`, {
+const apis = ["http://127.0.0.1:8000/api", "https://api/komeat.com/api"];
+
+fetch(apis[0] + "/user/auth", {
+  method: "GET",
+  headers: {
+    "Content-Type": "application/json",
+    Accept: "application/json",
+    Authorization: token,
+  },
+})
+  .then((response) => response.json())
+  .then((data) => {})
+  .catch((error) => {
+    window.location.assign("/index.html");
+  });
+
+document.getElementById("referralURL").value = `${apis[0]}/${user.name}`;
+
+fetch(`${apis[0]}/user/${user.id}`, {
   method: "GET",
   headers: {
     "Content-Type": "application/json",
@@ -15,8 +29,6 @@ fetch(`http://127.0.0.1:8000/api/user/${user.id}`, {
 })
   .then((response) => response.json())
   .then((data) => {
-    // Handle the response data
-    console.log(data);
     document.getElementById("balance").textContent = `$${data.account.balance}`;
     document.getElementById("earning").textContent = `$${data.account.earning}`;
     document.getElementById("bonus").textContent = `$${data.account.bonus}`;
@@ -27,8 +39,29 @@ fetch(`http://127.0.0.1:8000/api/user/${user.id}`, {
     ).textContent = `${data.withdraws.length}`;
     document.getElementById("date").textContent = new Date(user.updated_at);
   })
-
   .catch((error) => {
     // Handle errors
     console.log("Error:", error);
+    alert("refreash browser");
   });
+
+document.getElementById("logout").addEventListener("click", () => {
+  fetch(`${apis[0]}/logout`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      Authorization: token,
+    },
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      localStorage.clear();
+      window.location.assign("../index.html");
+    })
+    .catch((error) => {
+      // Handle errors
+      console.log("Error:", error);
+      // alert("unsuccessful");
+    });
+});

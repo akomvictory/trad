@@ -94,6 +94,7 @@ if (loginForm != null)
       })
       .catch((error) => {
         // Handle errors
-        console.log("Error:", error);
+        console.log("Error:", error + " try again");
+        alert(error);
       });
   });
